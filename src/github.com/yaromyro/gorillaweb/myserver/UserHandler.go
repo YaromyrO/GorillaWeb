@@ -103,6 +103,12 @@ func deleteUser(w http.ResponseWriter, r *http.Request) {
 	writeToFile()
 }
 
+func stopServer(w http.ResponseWriter, r *http.Request) {
+	if vars := mux.Vars(r); vars["stop"] == "stop" {
+		os.Exit(0)
+	}
+}
+
 func writeToFile() {
 	response, _ := json.Marshal(users)
 	err := ioutil.WriteFile("users.json", response, os.ModeDir)

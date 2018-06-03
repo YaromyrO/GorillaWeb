@@ -11,5 +11,6 @@ func MakeRouter() *mux.Router {
 	r.HandleFunc("/users", getUsers).Methods("GET")
 	r.HandleFunc("/user/{id}", deleteUser).Methods("DELETE")
 	r.HandleFunc("/user/{id}", updateUser).Methods("PUT")
+	r.HandleFunc("/user/{stop}/", stopServer).Methods("GET")
 	return r
 }
